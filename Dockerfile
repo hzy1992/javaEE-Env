@@ -8,8 +8,9 @@ ONBUILD add . /usr/src/app
 ONBUILD WORKDIR /usr/src/app
 ONBUILD RUN mvn install
 ONBUILD RUN cp target/*.war /usr/jetty/webapps
-ONBUILD WORKDIR /usr/jetty/webapps
-CMD ["java","-jar","jetty/start.jar"]
+ONBUILD RUN rm -rf *
+ONBUILD WORKDIR /usr/jetty
+CMD ["java","-jar","start.jar"]
 
 # The RUN instruction will execute any commands
 # Adding HelloWorld page into Nginx server
