@@ -5,6 +5,7 @@ WORKDIR /usr
 RUN tar -zxf jetty.tar.gz
 RUN rm -rf jetty.tar.gz
 RUN mv jetty* jetty
+add jetty.xml jetty/etc/jetty.xml
 RUN mkdir -p /usr/src/app
 ONBUILD add . /usr/src/app
 ONBUILD WORKDIR /usr/src/app
